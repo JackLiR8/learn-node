@@ -25,7 +25,7 @@ async function fetchData(url) {
       response.on('error', err => reject(err))
       response.on('data', chunk => data += chunk)
       response.on('end', () => resolve(data))
-    })
+    }).on('error', (err) => resolve(err))
   })
 }
 
